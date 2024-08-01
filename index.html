@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PflegePlus München - Professionelle Pflege mit Herz</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      color: #ffffff;
+      max-width: 800px;
+      padding: 40px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #6e8efb;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .services,
+    .team,
+    .testimonials {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .service-item,
+    .team-member,
+    .testimonial-item {
+      flex-basis: calc(33.333% - 20px);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .team-member img,
+    .testimonial-item img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      background-color: #f5f5f7;
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .stat-item {
+      flex-basis: 25%;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .process {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .process-step {
+      flex-basis: calc(25% - 20px);
+      text-align: center;
+    }
+
+    .process-icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-question {
+      background-color: #f5f5f7;
+      padding: 15px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .faq-answer {
+      padding: 15px;
+      display: none;
+    }
+
+    footer {
+      background-color: #f5f5f7;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      margin: 0 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    #contact {
+      background-color: #f5f5f7;
+      padding: 80px 0;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #999;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #0071e3;
+      outline: none;
+    }
+
+    .form-group input:focus+label,
+    .form-group textarea:focus+label,
+    .form-group input:not(:placeholder-shown)+label,
+    .form-group textarea:not(:placeholder-shown)+label {
+      top: -12px;
+      left: 5px;
+      font-size: 12px;
+      background-color: #ffffff;
+      padding: 0 5px;
+      color: #0071e3;
+    }
+
+    .submit-btn {
+      background-color: #0071e3;
+      color: #ffffff;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      margin: 20px auto 0;
+    }
+
+    .submit-btn:hover {
+      background-color: #2085f4;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4);
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        transform: translateX(-5px);
+      }
+
+      20%,
+      40%,
+      60%,
+      80% {
+        transform: translateX(5px);
+      }
+    }
+
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <strong>PflegePlus München</strong>
+        <ul>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="#services">Leistungen</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#process">Prozess</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Professionelle Pflege mit Herz in München</h1>
+      <p>Wir bieten qualitativ hochwertige häusliche Pflege, damit sich Ihre Lieben sicher und geborgen fühlen</p>
+      <a href="#contact" class="cta-button">Kostenlose Beratung anfordern</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>Über uns</h2>
+      <p>Seit 2010 unterstützt unser Pflegedienst die Münchner Bürger bei der Pflege ihrer Angehörigen. Wir glauben,
+        dass jeder Mensch, unabhängig von Alter oder Gesundheitszustand, eine würdevolle Pflege und Aufmerksamkeit
+        verdient. Unsere Mission ist es, eine hochwertige, individuelle Pflege zu gewährleisten, die es unseren Klienten
+        ermöglicht, in ihrer vertrauten häuslichen Umgebung zu bleiben und dabei ihre Würde und Unabhängigkeit zu
+        bewahren.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2>Unsere Leistungen</h2>
+      <div class="services">
+        <div class="service-item">
+          <div class="service-icon">👤</div>
+          <h3>Grundpflege</h3>
+          <p>Hilfe bei der Körperpflege, beim Ankleiden und bei der Nahrungsaufnahme</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">💊</div>
+          <h3>Medizinische Pflege</h3>
+          <p>Medikamentengabe, Blutdruckmessung, Wundversorgung</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🤝</div>
+          <h3>Soziale Betreuung</h3>
+          <p>Spaziergänge, Vorlesen, Gesellschaft leisten</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🏠</div>
+          <h3>Hauswirtschaftliche Versorgung</h3>
+          <p>Reinigung, Einkaufen, Mahlzeitenzubereitung</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🧠</div>
+          <h3>Spezialisierte Pflege</h3>
+          <p>Unterstützung für Demenzpatienten, nach Schlaganfall, Palliativpflege</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">📞</div>
+          <h3>24/7 Unterstützung</h3>
+          <p>Rund um die Uhr Betreuung und Notfallhilfe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <h2>PflegePlus in Zahlen</h2>
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">1000+</div>
+          <p>Zufriedene Klienten</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <p>Qualifizierte Pflegekräfte</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">14</div>
+          <p>Jahre Erfahrung</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <p>Verfügbarkeit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h2>Unser Team</h2>
+      <div class="team">
+        <div class="team-member">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1673957923985-b814a9dbc03d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Dr. Maria Schmidt">
+          <h3>Dr. Maria Schmidt</h3>
+          <p>Ärztliche Leitung</p>
+        </div>
+        <div class="team-member">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Thomas Müller">
+          <h3>Thomas Müller</h3>
+          <p>Pflegedienstleitung</p>
+        </div>
+        <div class="team-member">
+          <img
+            src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Laura Wagner">
+          <h3>Laura Wagner</h3>
+          <p>Qualitätsmanagement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <h2>Unser Pflegeprozess</h2>
+      <div class="process">
+        <div class="process-step">
+          <div class="process-icon">📞</div>
+          <h3>1. Kontaktaufnahme</h3>
+          <p>Sie kontaktieren uns für eine erste Beratung</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">🏠</div>
+          <h3>2. Erstgespräch</h3>
+          <p>Wir besuchen Sie zu Hause und besprechen Ihre Bedürfnisse</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">📝</div>
+          <h3>3. Pflegeplan</h3>
+          <p>Wir erstellen einen individuellen Pflegeplan</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">👥</div>
+          <h3>4. Pflegebeginn</h3>
+          <p>Unsere qualifizierten Pflegekräfte beginnen mit der Betreuung</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <h2>Das sagen unsere Klienten</h2>
+      <div class="testimonials">
+        <div class="testimonial-item">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=3276&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Anna M.">
+          <p>"Dank PflegePlus konnte meine Mutter trotz fortschreitender Alzheimer-Erkrankung zu Hause bleiben. Ihre
+            Fürsorge und Professionalität sind beeindruckend."</p>
+          <h3>Anna M.</h3>
+        </div>
+        <div class="testimonial-item">
+          <img
+            src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Michael K.">
+          <p>"Die Mitarbeiter sind immer aufmerksam und freundlich. Sie erledigen nicht nur ihre Arbeit, sondern werden
+            zu echten Freunden für meinen Vater."</p>
+          <h3>Michael K.</h3>
+        </div>
+        <div class="testimonial-item">
+          <img
+            src="https://images.unsplash.com/photo-1440589473619-3cde28941638?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Sandra L.">
+          <p>"Die 24/7 Unterstützung gibt mir ein Gefühl der Sicherheit. Ich weiß, dass meine Tante jederzeit die Hilfe
+            bekommt, die sie braucht."</p>
+          <h3>Sandra L.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Häufig gestellte Fragen</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question">Wie läuft die Kostenübernahme durch die Pflegekasse ab?</div>
+          <div class="faq-answer">Die Kostenübernahme hängt vom festgestellten Pflegegrad ab. Wir unterstützen Sie gerne
+            bei der Beantragung und Abrechnung mit der Pflegekasse.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Welche Qualifikationen haben Ihre Pflegekräfte?</div>
+          <div class="faq-answer">Unsere Pflegekräfte sind ausgebildete Fachkräfte mit staatlicher Anerkennung. Viele
+            haben zusätzliche Spezialisierungen, z.B. in der Demenzpflege oder Palliativversorgung.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Wie schnell können Sie die Pflege beginnen?</div>
+          <div class="faq-answer">In der Regel können wir innerhalb von 24 bis 48 Stunden nach dem Erstgespräch mit der
+            Pflege beginnen. In dringenden Fällen bemühen wir uns um eine noch schnellere Lösung.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Kontaktieren Sie uns</h2>
+      <p>Wir sind für Sie da. Kontaktieren Sie uns für eine kostenlose Beratung oder weitere Informationen.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <input type="text" id="name" required placeholder=" ">
+          <label for="name">Ihr Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" required placeholder=" ">
+          <label for="email">Ihre E-Mail</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="phone" placeholder=" ">
+          <label for="phone">Ihre Telefonnummer</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" required placeholder=" " rows="5"></textarea>
+          <label for="message">Ihre Nachricht</label>
+        </div>
+        <button type="submit" class="submit-btn">Nachricht senden</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+        <a href="#">AGB</a>
+      </div>
+      <p>&copy; 2024 PflegePlus München. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Плавная прокрутка для навигации
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Открытие/закрытие FAQ
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Анимация появления элементов при прокрутке
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    function handleScroll() {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        if (isElementInViewport(el)) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+
+    // Анимация для контактной формы
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+      this.querySelectorAll('input, textarea').forEach(el => {
+        if (el.hasAttribute('required') && !el.value.trim()) {
+          isValid = false;
+          el.classList.add('shake');
+          setTimeout(() => el.classList.remove('shake'), 500);
+        }
+      });
+
+      if (isValid) {
+        // Здесь можно добавить код для отправки формы
+        alert('Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.');
+        this.reset();
+      }
+    });
+
+    // Плавное появление формы при прокрутке
+    const contactForm = document.querySelector('.contact-form');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+
+    observer.observe(contactForm);
+
+  </script>
+
+  <script type="text/javascript">
+    (function (d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function () {
+        window.voiceflow.chat.load({
+          verify: {projectID: '65d50f93df21126dbdb78028'},
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+
+</html>
